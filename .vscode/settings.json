@@ -1,0 +1,9 @@
+{
+    "emmet.variables": {
+    
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "editor.fontFamily": "'Fira Code',Consolas, 'Courier New', monospace",
+    "files.autoSave": "afterDelay",
+    "editor.fontLigatures": true
+}

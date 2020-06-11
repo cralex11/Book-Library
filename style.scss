@@ -1,0 +1,209 @@
+$color-font-accent: #020887;
+$color-font-main: #a9dbb8;
+$color-accent: #38369a;
+$color-main: #7ca5b8;
+$color-bg: #c6ebbe;
+
+$transition: 0.2s;
+$cubic: cubic-bezier(0.74, -0.02, 0, 1.57);
+
+html {
+	color: $color-font-accent;
+	font-size: 18px;
+	letter-spacing: 1px;
+	line-height: 140%;
+}
+
+a {
+	color: inherit;
+}
+
+button {
+	background: none;
+	color: $color-main;
+
+	transition: color $transition ease-out;
+
+	&:hover {
+		color: $color-font-accent;
+		background: none;
+	}
+}
+
+.main-header {
+	background-color: $color-bg;
+	font-size: 1.4rem;
+}
+
+.nav__list {
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+}
+
+.list__item {
+	padding: 1rem;
+	transition: color $transition ease-out;
+
+	&:hover {
+		color: $color-main;
+	}
+}
+
+.add-book {
+	display: none;
+	position: absolute;
+	height: 80vh;
+	width: 80%;
+	max-width: 800px;
+	left: 0;
+	right: 0;
+	margin: 10px auto 0 auto;
+	z-index: 1;
+	background-color: #d3ebceef;
+	border-radius: 20px;
+}
+
+.add-book__body {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.add-book__form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
+	width: 50%;
+
+	&>* {
+		margin-top: .6rem;
+	}
+
+	button {
+		border: 1px solid $color-main;
+		border-radius: 20px;
+		padding: .2rem .8rem;
+		transition: background-color $transition ease-out;
+
+		&:hover {
+			background-color: $color-main;
+			color: $color-font-accent;
+		}
+	}
+}
+
+input {
+	padding: .4rem .8rem;
+	border: 1px solid $color-main;
+}
+
+input[type=checkbox] {
+	/* Double-sized Checkboxes */
+	-ms-transform: scale(1.6);
+	/* IE */
+	-moz-transform: scale(1.6);
+	/* FF */
+	-webkit-transform: scale(1.6);
+	/* Safari and Chrome */
+	-o-transform: scale(1.6);
+	/* Opera */
+	transform: scale(1.6);
+	padding: 10px;
+	margin-top: .8rem;
+	margin-bottom: 1.2rem;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.isReadCheckbox {
+	/* Checkbox text */
+	font-size: 110%;
+	display: inline;
+}
+
+.library {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	padding: 2rem 0;
+	background-color: $color-main;
+	color: $color-font-accent;
+}
+
+.library__book {
+	text-align: center;
+	flex-basis: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&>* {
+		margin-bottom: 0.6rem;
+	}
+
+	margin-bottom: 4rem;
+}
+
+.book__img {
+	overflow: hidden;
+	border-radius: 20px;
+	border: 16px solid $color-bg;
+	background-color: $color-bg;
+}
+
+img {
+	width: 100%;
+	object-fit: cover;
+	transform: scale(1.2);
+	transition: transform 0.4s $cubic;
+	border-radius: 20px;
+
+	&:hover {
+		transform: scale(1);
+	}
+}
+
+.book__title {
+	margin-top: 1rem;
+	font-size: 1.4rem;
+	font-weight: 400;
+	letter-spacing: 1.6px;
+}
+
+.book__author {
+	font-style: oblique;
+	color: $color-bg;
+	position: relative;
+	margin-bottom: 1.2rem;
+
+	&:after {
+		content: '';
+		width: 120%;
+		height: 2px;
+		position: absolute;
+		bottom: -6px;
+		left: -10%;
+		background-color: $color-bg;
+		border-radius: 100px;
+		// border-bottom: 1px solid $color-bg;
+	}
+}
+
+.read {
+	border-radius: 100px;
+	padding: 0.6rem 0.6rem;
+	display: flex;
+	align-items: center;
+	margin-top: auto;
+
+	background-color: rgba(255, 255, 255, 0.151);
+	color: $color-accent;
+	transition: background-color $transition ease-out;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.329);
+	}
+}
