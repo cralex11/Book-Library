@@ -21,7 +21,11 @@
 					<li class="list__item">
 						<button id="addBookNav">Add a book</button>
 					</li>
-					<li class="list__item"><button onclick="">My read books</button></li>
+					<li class="list__item">
+						<button onclick="showLocalStorage()">
+							My read books
+						</button>
+					</li>
 				</ul>
 			</nav>
 		</header>
@@ -34,7 +38,7 @@
 					<input type="text" placeholder="Pages number" id="pageNumber" />
 					<label for="isReadCheckbox">Have you read it?</label>
 					<input type="checkbox" name="isRead" id="isReadCheckbox" />
-					<button id="add-book-btn">Add</button>
+					<button id="add-book-btn" type="button">Add</button>
 				</form>
 			</div>
 		</section>

@@ -9,6 +9,11 @@ const isRead = document.querySelector('.read')
 const addBookNav = document.getElementById('addBookNav')
 const addBookSection = document.getElementsByClassName('add-book')
 const addBookBtn = document.getElementById('add-book-btn')
+// add book window
+const bookNameAddNewBookSection = document.getElementById('bookName').value
+const bookAuthorAddNewBookSection = document.getElementById('bookAuthor').value
+const bookPagesAddNewBookSection = document.getElementById('pageNumber').value
+const bookIsReadAddNewBookSection = document.getElementById('isReadCheckbox')
 
 const book = [
 	{
@@ -40,21 +45,21 @@ const book = [
 // const number = 4
 // for (let index = 0; index < number; index++) {
 // Add books on page
-for (const index in book) {
-	const cloneBlock = bookBlock.cloneNode(true)
-	if (book[index]) {
-		cloneBlock.children[1].innerHTML = book[index].title
-		cloneBlock.children[2].innerHTML = book[index].author
-		cloneBlock.children[3].innerHTML = `Page number: ${book[index].pages}`
-		if (book[index].isRead) {
-			console.log(cloneBlock.children[4].children[0])
-			cloneBlock.children[4].children[0].removeAttribute('name')
-			cloneBlock.children[4].children[0].setAttribute('name', 'book')
-		}
-	}
+// for (const index in book) {
+// 	const cloneBlock = bookBlock.cloneNode(true)
+// 	if (book[index]) {
+// 		cloneBlock.children[1].innerHTML = book[index].title
+// 		cloneBlock.children[2].innerHTML = book[index].author
+// 		cloneBlock.children[3].innerHTML = `Page number: ${book[index].pages}`
+// 		if (book[index].isRead) {
+// 			console.log(cloneBlock.children[4].children[0])
+// 			cloneBlock.children[4].children[0].removeAttribute('name')
+// 			cloneBlock.children[4].children[0].setAttribute('name', 'book')
+// 		}
+// 	}
 
-	bookBlock.after(cloneBlock)
-}
+// 	bookBlock.after(cloneBlock)
+// }
 
 // CHECK IF THE BOOK IS READ AND CHANGE ICON AND VALUE
 function haveRead(bookButt) {
@@ -105,11 +110,28 @@ addBookNav.addEventListener('click', () => {
 	if (addBookSection[0].style.display == 'block')
 		addBookSection[0].style.display = 'none'
 	else addBookSection[0].style.display = 'block'
-	console.log('click')
 })
 // todo : to add focus/blur
 
 // ADD FUNCTION TO ADD-BOOK BTN
 addBookBtn.addEventListener('click', () => {
-	alert('Work')
+	localStorage.setItem(
+		localStorage.length + 1,
+		JSON.stringify({
+			title: bookNameAddNewBookSection,
+			author: bookAuthorAddNewBookSection,
+			pages: bookPagesAddNewBookSection,
+			isReadBBB: bookIsReadAddNewBookSection.checked,
+		})
+	)
+	console.log(JSON.parse(localStorage.getItem('test')))
+	console.log(bookIsReadAddNewBookSection.checked)
 })
+
+// Show Local Store
+
+function showLocalStorage() {
+	for (let i = 1; i <= localStorage.length; i++) {
+		console.log(JSON.parse(localStorage.getItem(i)))
+	}
+}
