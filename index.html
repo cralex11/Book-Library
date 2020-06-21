@@ -28,6 +28,11 @@
 					</li>
 				</ul>
 			</nav>
+
+			<script
+				type="module"
+				src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"
+			></script>
 		</header>
 
 		<section class="add-book">
@@ -36,6 +41,11 @@
 					<input type="text" placeholder="Book name" id="bookName" />
 					<input type="text" placeholder="Book's author" id="bookAuthor" />
 					<input type="text" placeholder="Pages number" id="pageNumber" />
+					<input
+						type="text"
+						placeholder="Cover URL (Optional)"
+						id="bookCover"
+					/>
 					<label for="isReadCheckbox">Have you read it?</label>
 					<input type="checkbox" name="isRead" id="isReadCheckbox" />
 					<button id="add-book-btn" type="button">Add</button>
@@ -44,7 +54,7 @@
 		</section>
 
 		<section class="library">
-			<div class="library__book">
+			<!-- <div class="library__book">
 				<figure class="book__img">
 					<img
 						src="https://source.unsplash.com/RrhhzitYizg/480x720"
@@ -64,10 +74,9 @@
 				<button class="read" onclick="haveRead(this)">
 					<ion-icon name="book-outline" class="isRead"></ion-icon>
 				</button>
-			</div>
+			</div> -->
 		</section>
 
 		<script src="script.js"></script>
-		<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 	</body>
 </html>
