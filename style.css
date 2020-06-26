@@ -12,10 +12,8 @@ a {
 button {
   background: none;
   color: #7ca5b8;
-  -webkit-transition: color 0.2s ease-out;
   transition: color 0.2s ease-out;
 }
-
 button:hover {
   color: #020887;
   background: none;
@@ -28,19 +26,14 @@ button:hover {
 
 .nav__list {
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .list__item {
   padding: 1rem;
-  -webkit-transition: color 0.2s ease-out;
   transition: color 0.2s ease-out;
 }
-
 .list__item:hover {
   color: #7ca5b8;
 }
@@ -61,67 +54,51 @@ button:hover {
 
 .add-book__body {
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-book__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 50%;
   width: 50%;
 }
-
 .add-book__form > * {
-  margin-top: .6rem;
+  margin-top: 0.6rem;
 }
-
 .add-book__form button {
   border: 1px solid #7ca5b8;
   border-radius: 20px;
-  padding: .2rem .8rem;
-  -webkit-transition: background-color 0.2s ease-out;
+  padding: 0.2rem 0.8rem;
   transition: background-color 0.2s ease-out;
 }
-
 .add-book__form button:hover {
   background-color: #7ca5b8;
   color: #020887;
 }
 
 input {
-  padding: .4rem .8rem;
+  padding: 0.4rem 0.8rem;
   border: 1px solid #7ca5b8;
 }
 
 input[type=checkbox] {
   /* Double-sized Checkboxes */
+  -ms-transform: scale(1.6);
   /* IE */
+  -moz-transform: scale(1.6);
   /* FF */
   -webkit-transform: scale(1.6);
   /* Safari and Chrome */
+  -o-transform: scale(1.6);
   /* Opera */
   transform: scale(1.6);
   padding: 10px;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   margin-bottom: 1.2rem;
 }
 
@@ -133,36 +110,23 @@ input[type=checkbox] {
 }
 
 .library {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   padding: 2rem 0;
   background-color: #7ca5b8;
   color: #020887;
+  height: 100vh;
 }
 
 .library__book {
   text-align: center;
-  -ms-flex-preferred-size: 300px;
-      flex-basis: 300px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex-basis: 300px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 4rem;
 }
-
 .library__book > * {
   margin-bottom: 0.6rem;
 }
@@ -176,20 +140,13 @@ input[type=checkbox] {
 
 img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.74, -0.02, 0, 1.57);
-  transition: -webkit-transform 0.4s cubic-bezier(0.74, -0.02, 0, 1.57);
+  object-fit: cover;
+  transform: scale(1.2);
   transition: transform 0.4s cubic-bezier(0.74, -0.02, 0, 1.57);
-  transition: transform 0.4s cubic-bezier(0.74, -0.02, 0, 1.57), -webkit-transform 0.4s cubic-bezier(0.74, -0.02, 0, 1.57);
   border-radius: 20px;
 }
-
 img:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
 
 .book__title {
@@ -205,9 +162,8 @@ img:hover {
   position: relative;
   margin-bottom: 1.2rem;
 }
-
 .book__author:after {
-  content: '';
+  content: "";
   width: 120%;
   height: 2px;
   position: absolute;
@@ -220,20 +176,15 @@ img:hover {
 .read {
   border-radius: 100px;
   padding: 0.6rem 0.6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-top: auto;
   background-color: rgba(255, 255, 255, 0.151);
   color: #38369a;
-  -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
 }
-
 .read:hover {
   background-color: rgba(255, 255, 255, 0.329);
 }
+
 /*# sourceMappingURL=style.css.map */
