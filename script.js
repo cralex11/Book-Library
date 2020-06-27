@@ -56,9 +56,7 @@ function changeIsReadInLocalStorage(title, author, status) {
         let lStorage = JSON.parse(localStorage.getItem(i.toString()))
         if (lStorage['title'] === title)
             if (lStorage['author'] === author) {
-                if (status)
-                    lStorage.isRead = true
-                else lStorage.isRead = false
+                lStorage.isRead = !!status;
 
                 localStorage.setItem(i.toString(), JSON.stringify(lStorage))
             }
@@ -188,4 +186,5 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 1; i <= localStorage.length; i++) reloadBooks(i)
 })
 
+//todo: a have to add my read books section
 
