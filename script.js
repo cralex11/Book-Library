@@ -37,28 +37,9 @@ const book = [
     },
 ]
 
-// const number = 4
-// for (let index = 0; index < number; index++) {
-// Add books on page
-// for (const index in book) {
-// 	const cloneBlock = bookBlock.cloneNode(true)
-// 	if (book[index]) {
-// 		cloneBlock.children[1].innerHTML = book[index].title
-// 		cloneBlock.children[2].innerHTML = book[index].author
-// 		cloneBlock.children[3].innerHTML = `Page number: ${book[index].pages}`
-// 		if (book[index].isRead) {
-// 			console.log(cloneBlock.children[4].children[0])
-// 			cloneBlock.children[4].children[0].removeAttribute('name')
-// 			cloneBlock.children[4].children[0].setAttribute('name', 'book')
-// 		}
-// 	}
-
-// 	bookBlock.after(cloneBlock)
-// }
-
-// OPEN ADD BOOK SECTION
+/*---------------------------------- OPEN ADD BOOK SECTION ------------------------------------*/
 addBookNav.addEventListener('click', () => {
-    if (addBookSection[0].style.display == 'block')
+    if (addBookSection[0].style.display === 'block')
         addBookSection[0].style.display = 'none'
     else addBookSection[0].style.display = 'block'
 })
@@ -68,14 +49,14 @@ addBookNav.addEventListener('click', () => {
 /*                                  FUNCTIONS                                 */
 /* -------------------------------------------------------------------------- */
 
-/* ----------- CHECK IF THE BOOK IS READ AND CHANGE ICON AND VALUE ---------- */
 
-function changeIsReadInLocalStorage(title , author , status) {
+/*------------ Change if the books is read in local storage ------------------*/
+function changeIsReadInLocalStorage(title, author, status) {
     for (let i = 1; i <= localStorage.length; i++) {
         let lStorage = JSON.parse(localStorage.getItem(i.toString()))
         if (lStorage['title'] === title)
             if (lStorage['author'] === author) {
-                if(status)
+                if (status)
                     lStorage.isRead = true
                 else lStorage.isRead = false
 
@@ -102,9 +83,7 @@ function haveRead(bookButt) {
     changeIsReadInLocalStorage(title, author, status)
 }
 
-
-
-// Reload book library
+/*------ Reload book library ------*/
 function reloadBooks(i) {
     const library = document.getElementsByClassName('library')[0]
     const libraryBook = document.createElement('div')
@@ -115,13 +94,18 @@ function reloadBooks(i) {
     const bookPage = document.createElement('span')
     const buttonSubmit = document.createElement('button')
     const icon = document.createElement('ion-icon')
+
     //Local Storage
     const localBook = localStorage.getItem(i)
     const bookObj = JSON.parse(localBook)
+
     //Setup
-    //todo fix cover
-    // const defaultCover = 'https://source.unsplash.com/RrhhzitYizg/480x720'
-    const defaultCover = 'res/cover.jpeg'
+    let defaultCover = 'res/cover.jpeg'
+    if (bookObj['cover'])
+        defaultCover = bookObj['cover']
+
+
+    /*------ Assign values from input for eatch book ------*/
     libraryBook.className = 'library__book'
     bookImg.className = 'book__img'
     figureImg.className = 'figure__img'
@@ -131,27 +115,15 @@ function reloadBooks(i) {
     icon.setAttribute('name', 'book-outline')
     icon.className = 'isRead'
     buttonSubmit.className = 'read'
+
+    /*------ insert from local storage ------*/
     bookTitle.innerHTML = bookObj.title
     bookPage.innerHTML = bookObj.pages
     bookAuthor.innerHTML = bookObj.author
     buttonSubmit.setAttribute('onclick', 'haveRead(this)')
+    figureImg.setAttribute('src', defaultCover)
 
-    // if(bookObj.isRead)
-
-    console.log('----------\n' + bookObj['cover'])
-    //     figureImg.setAttribute('src', defaultCover)
-    // else figureImg.setAttribute('src', bookObj.cover + '/480x720')
-    // bookObj.cover
-    console.log('reloadBooks -> bookObj.cover', bookObj.cover)
-    console.log('bookObj', bookObj)
-
-    console.log(
-        'reloadBooks -> Object.keys(bookObj.cover) === 0',
-        Object.keys(bookObj.cover) === 0
-    )
-
-
-    //setup the block
+    /*------ setup the block ------*/
     buttonSubmit.appendChild(icon)
     bookImg.appendChild(figureImg)
     libraryBook.appendChild(bookImg)
@@ -161,14 +133,13 @@ function reloadBooks(i) {
     libraryBook.appendChild(buttonSubmit)
     library.appendChild(libraryBook)
 
-
-    if (bookObj.isRead){
+    /*------ add style to read button ------*/
+    if (bookObj.isRead) {
         haveRead(buttonSubmit)
     }
 }
 
 /* ------------------------ FUNCTION TO ADD-BOOK BTN ------------------------ */
-
 addBookBtn.addEventListener('click', () => {
     // add book window
     const bookNameAddNewBookSection = document.getElementById('bookName').value
@@ -177,14 +148,12 @@ addBookBtn.addEventListener('click', () => {
     const bookIsReadAddNewBookSection = document.getElementById('isReadCheckbox')
     let bookCoverAddNewBookSection = document.getElementById(('bookCover')).value
 
-
-    // check is the input is empty
+    /*------ check is the input is empty ------*/
     if (bookNameAddNewBookSection.length !== 0)
         if (bookAuthorAddNewBookSection.length !== 0)
             if (bookPagesAddNewBookSection.length !== 0) {
 
                 let bookId = localStorage.length + 1
-
                 localStorage.setItem(
                     bookId.toString(),
                     JSON.stringify({
@@ -200,12 +169,14 @@ addBookBtn.addEventListener('click', () => {
                 document.getElementById('bookAuthor').value = ''
                 document.getElementById('pageNumber').value = ''
                 document.getElementById('bookCover').value = ''
+                document.getElementById('isReadCheckbox').checked = false
             }
-    // reload books library
+
+    /*------ reload books library ------*/
     reloadBooks(localStorage.length)
 })
 
-// Show Local Store
+/*------ Show Local Store ------*/
 function showLocalStorage() {
     for (let i = 1; i <= localStorage.length; i++) {
         console.log(JSON.parse(localStorage.getItem(i)))
@@ -213,9 +184,8 @@ function showLocalStorage() {
 }
 
 /* ------------------------ Load books on page start ------------------------ */
-
 document.addEventListener('DOMContentLoaded', () => {
     for (let i = 1; i <= localStorage.length; i++) reloadBooks(i)
 })
 
-// alert('all right')
+
